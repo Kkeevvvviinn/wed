@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevvin & Dwi's Wedding Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      background-image: url('https://www.transparenttextures.com/patterns/dark-floral.png');
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #2c0000;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff0000;
+      margin: 0;
+    }
+    h2 {
+      margin-top: 1rem;
+      font-weight: normal;
+    }
+    .section {
+      padding: 2rem 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .map {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, select, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+    input, select {
+      background-color: #333;
+      color: #f2f2f2;
+    }
+    button {
+      background-color: #ff0000;
+      color: white;
+      cursor: pointer;
+    }
+    .rsvp-list {
+      margin-top: 2rem;
+    }
+    .rsvp-entry {
+      background-color: #333;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      border-left: 5px solid #ff0000;
+    }
+    .floral {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      opacity: 0.3;
+    }
+    .floral.top-left {
+      top: 10px;
+      left: 10px;
+    }
+    .floral.top-right {
+      top: 10px;
+      right: 10px;
+    }
+    .floral.bottom-left {
+      bottom: 10px;
+      left: 10px;
+    }
+    .floral.bottom-right {
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/xmV9GkS/floral-corner-left.png" class="floral top-left" alt="floral" />
+    <img src="https://i.ibb.co/XpNmW5r/floral-corner-right.png" class="floral top-right" alt="floral" />
+    <h1>Kevvin & Dwi</h1>
+    <h2>are getting married!</h2>
+    <p>Saturday, 21 June 2025</p>
+    <p>Dress Code: Cosplay</p>
+  </header>
+
+  <section class="section">
+    <img src="https://i.ibb.co/xmV9GkS/floral-corner-left.png" class="floral bottom-left" alt="floral" />
+    <img src="https://i.ibb.co/XpNmW5r/floral-corner-right.png" class="floral bottom-right" alt="floral" />
+    <h2>You're Invited</h2>
+    <p>
+      Please join us on our special day as we celebrate our love with a gothic twist.
+    </p>
+    <div class="map">
+      <a href="https://maps.app.goo.gl/irkYuxgzB4w3BNJdA" target="_blank" style="color:#ff0000;">
+        📍 View Venue Location
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>RSVP</h2>
+    <form class="rsvp-form" id="rsvpForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <select id="attendance" required>
+        <option value="">Will you attend?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <button type="submit">Submit RSVP</button>
+    </form>
+
+    <div class="rsvp-list" id="rsvpList">
+      <h3>Guest List</h3>
+    </div>
+  </section>
+
+  <script>
+    const rsvpForm = document.getElementById('rsvpForm');
+    const rsvpList = document.getElementById('rsvpList');
+
+    rsvpForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const attendance = document.getElementById('attendance').value;
+
+      if (name && attendance) {
+        const entry = document.createElement('div');
+        entry.className = 'rsvp-entry';
+        entry.textContent = `${name} - ${attendance}`;
+        rsvpList.appendChild(entry);
+
+        rsvpForm.reset();
+      }
+    });
+  </script>
+</body>
+</html>
